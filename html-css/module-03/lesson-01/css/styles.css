@@ -1,0 +1,148 @@
+/* #region Common */
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #111111;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  color: currentColor;
+  cursor: pointer;
+}
+
+address {
+  font-style: normal;
+}
+
+.visually-hidden,
+.read-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+/* #endregion */
+
+/* #region Logo */
+.logo {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.11;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+.logo-icon {
+}
+/* #endregion */
+
+/* #region Button */
+.btn {
+  font-weight: 600;
+  color: #fff;
+}
+.btn-accent {
+  background-color: #fd9222;
+}
+.btn-light {
+  background-color: transparent;
+}
+.btn-dark {
+  font-size: 18px;
+  color: #111111;
+  background-color: transparent;
+}
+/* #endregion */
+
+/* #region Socials */
+.socials {
+}
+.socials-item {
+}
+.socials-link {
+}
+.socials-icon {
+}
+/* #endregion */
+
+/* #region Header */
+.header {
+}
+.nav {
+}
+.nav-logo {
+}
+.nav-list {
+}
+.nav-list-item {
+}
+.nav-list-link {
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+}
+.nav-list-link:hover,
+.nav-list-link:focus {
+  color: #fd9222;
+}
+.header-socials {
+}
+/* #endregion */
+
+/* #region Hero */
+.hero {
+  background-color: rgb(17 17 17 / 40%);
+}
+.hero-title {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.21;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+.hero-link {
+  font-weight: 500;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+.hero-link:hover,
+.hero-link:focus {
+  color: #fd9222;
+}
+.hero-link-icon {
+}
+/* #endregion */
+
+/* #region Benefits */
+.benefits {
+  background-color: #1e1823;
+}
+.benefits-list {
+}
+.benefits-item {
+}
+.benefits-caption {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.22;
+  color: #ffffff;
+}
+.benefits-desc {
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.7);
+}
+/* #endregion */
