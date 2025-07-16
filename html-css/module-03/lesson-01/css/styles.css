@@ -5,6 +5,23 @@ body {
   color: #111111;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 a {
   color: currentColor;
   text-decoration: none;
@@ -18,6 +35,12 @@ button {
 
 address {
   font-style: normal;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .visually-hidden,
@@ -34,10 +57,23 @@ address {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+.container {
+  max-width: 1168px;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  outline: 2px solid red;
+  outline-offset: -2px;
+}
 /* #endregion */
 
 /* #region Logo */
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
   font-weight: 700;
   font-size: 18px;
   line-height: 1.11;
@@ -50,19 +86,44 @@ address {
 
 /* #region Button */
 .btn {
+  min-width: 144px;
+  min-height: 45px;
+  padding: 14px 40px;
+
+  border: 1px solid transparent;
+  border-radius: 100px;
+
   font-weight: 600;
   color: #fff;
 }
 .btn-accent {
   background-color: #fd9222;
 }
+.btn-accent:hover,
+.btn-accent:focus {
+  color: #fd9222;
+  background-color: #fcf1e0;
+}
 .btn-light {
   background-color: transparent;
+  border-color: #ffffff;
+}
+.btn-light:hover,
+.btn-light:focus {
+  color: #fd9222;
+  border-color: #fd9222;
 }
 .btn-dark {
   font-size: 18px;
+  line-height: 1.22;
   color: #111111;
   background-color: transparent;
+  border-color: #fd9222;
+}
+.btn-dark:hover,
+.btn-dark:focus {
+  color: #ffffff;
+  background-color: #fd9222;
 }
 /* #endregion */
 
@@ -103,9 +164,16 @@ address {
 
 /* #region Hero */
 .hero {
-  background-color: rgb(17 17 17 / 40%);
 }
+.hero .container {
+  padding: 381px 40px 40px;
+  background-color: rgb(17 17 17 / 40%);
+  border-radius: 30px;
+}
+
 .hero-title {
+  width: 484px;
+  margin-bottom: 32px;
   font-weight: 500;
   font-size: 28px;
   line-height: 1.21;
