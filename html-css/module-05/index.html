@@ -593,7 +593,11 @@
               </p>
             </li>
           </ul>
-          <button class="reviews-btn btn btn-dark" type="button">
+          <button
+            class="reviews-btn btn btn-dark"
+            type="button"
+            data-modal-open
+          >
             Leave a review
           </button>
         </div>
@@ -690,9 +694,9 @@
       </div>
     </footer>
 
-    <div class="backdrop">
+    <div class="backdrop js-backdrop" data-modal>
       <div class="modal">
-        <button class="modal-btn" type="button">
+        <button class="modal-btn" type="button" data-modal-close>
           <svg class="modal-btn-icon" width="28" height="28">
             <use href="./images/icons.svg#icon-close"></use>
           </svg>
@@ -711,10 +715,17 @@
                 type="text"
                 name="user-name"
                 id="user-name"
+                required
+                minlength="3"
+                placeholder="&nbsp;"
               />
-              <svg class="modal-form-icon" width="24" height="24">
+              <svg class="modal-form-icon form-icon" width="24" height="24">
                 <use href="./images/icons.svg#person"></use>
               </svg>
+              <svg class="modal-form-icon error" width="24" height="24">
+                <use href="./images/icons.svg#error"></use>
+              </svg>
+              <p class="error-msg">Lorem ipsum dolor sit amet.</p>
             </div>
           </div>
 
@@ -726,8 +737,10 @@
                 type="email"
                 name="user-email"
                 id="user-email"
+                required
+                placeholder="&nbsp;"
               />
-              <svg class="modal-form-icon" width="24" height="24">
+              <svg class="modal-form-icon form-icon" width="24" height="24">
                 <use href="./images/icons.svg#email"></use>
               </svg>
             </div>
@@ -743,8 +756,10 @@
                 type="tel"
                 name="user-phone"
                 id="user-phone"
+                pattern="/\+380\d{9}/gm"
+                title="Use +380 and 9 digits"
               />
-              <svg class="modal-form-icon" width="24" height="24">
+              <svg class="modal-form-icon form-icon" width="24" height="24">
                 <use href="./images/icons.svg#phone"></use>
               </svg>
             </div>
@@ -759,6 +774,26 @@
               placeholder="Enter text"
             ></textarea>
           </div>
+
+          <label class="modal-form-agreement">
+            <input class="checkbox read-only" type="checkbox" value="true" />
+            <span class="modal-form-checkbox">
+              <svg class="modal-form-checkbox-icon" width="10" height="10">
+                <use href="./images/icons.svg#icon-check"></use>
+              </svg>
+            </span>
+            I accept the terms and conditions of the
+            <a
+              class="modal-form-agreement-link"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Privacy Policy
+            </a>
+          </label>
+
+          <button class="btn btn-accent form-btn" type="submit">Send</button>
         </form>
       </div>
     </div>
@@ -944,5 +979,6 @@
     </div> -->
 
     <!-- <script src="./js/main.js"></script> -->
+    <script src="./js/modal.js"></script>
   </body>
 </html>
