@@ -1,0 +1,46 @@
+<svg
+  width="370"
+  height="294"
+  viewBox="0 0 370 294"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <rect
+    width="370"
+    height="294"
+    fill="#0b50da"
+  />
+  <circle
+    cx="158.5"
+    cy="140.5"
+    r="59.5"
+    fill="#31b6cd"
+    stroke="lightgreen"
+    stroke-width="5px"
+    stroke-opacity="0.5"
+  />
+  <line
+    x1="263"
+    y1="51"
+    x2="263"
+    y2="230"
+    stroke="#8518de"
+    stroke-width="10"
+  />
+  <line
+    x1="303"
+    y1="51"
+    x2="303"
+    y2="230"
+    stroke="black"
+    stroke-width="10"
+  />
+  <line
+    x1="341"
+    y1="51"
+    x2="341"
+    y2="230"
+    stroke="black"
+    stroke-width="10"
+  />
+</svg>
