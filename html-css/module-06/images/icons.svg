@@ -23,6 +23,19 @@
         style="stroke:var(--color2, #fd9222)"
       />
     </symbol>
+    <symbol
+      id="icon-menu"
+      viewBox="0 0 28 28"
+    >
+      <path
+        d="M3.5 14H24.5M3.5 7H24.5M3.5 21H24.5"
+        stroke="#111111"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </symbol>
+
     <!-- Socials icons -->
     <symbol
       id="facebook"

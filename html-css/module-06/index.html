@@ -40,15 +40,24 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body class="page">
-    <header class="header hide" id="home">
+    <header class="header" id="home">
       <div class="container">
         <nav class="nav">
           <a class="logo nav-logo" href="./index.html" id="link">
             <i>Simply</i> Chocolate
-            <svg class="logo-icon" width="24" height="24">
+            <svg class="logo-icon" width="21" height="21">
               <use href="./images/icons.svg#logo"></use>
             </svg>
           </a>
+          <button
+            class="mobile-menu-btn clear-btn"
+            type="button"
+            aria-label="Mobile menu button"
+          >
+            <svg class="mobile-menu-icon" width="28" height="28">
+              <use href="./images/icons.svg#icon-menu"></use>
+            </svg>
+          </button>
           <ul class="nav-list">
             <li class="nav-list-item">
               <a class="nav-list-link actvite" href="#home">Home</a>
@@ -107,7 +116,7 @@
 
     <main>
       <!-- #region Hero -->
-      <section class="hero hide">
+      <section class="hero">
         <div class="container">
           <h1 class="hero-title">
             Treat yourself or a loved one to our&nbsp;finest ingredients for a
@@ -203,7 +212,11 @@
               </button>
               <img
                 class="ingredients-ill"
-                src="./images/ingredients/img-1.png"
+                srcset="
+                  ./images/ingredients/img-1@1x.png 1x,
+                  ./images/ingredients/img-1@2x.png 2x
+                "
+                src="./images/ingredients/img-1@1x.png"
                 alt="MILK CHOCOLATE"
                 width="214"
                 height="160"
@@ -218,7 +231,11 @@
               </button>
               <img
                 class="ingredients-ill"
-                src="./images/ingredients/img-2.png"
+                srcset="
+                  ./images/ingredients/img-2@1x.png 1x,
+                  ./images/ingredients/img-2@2x.png 2x
+                "
+                src="./images/ingredients/img-2@1x.png"
                 alt="MILK"
                 width="214"
                 height="160"
@@ -233,7 +250,11 @@
               </button>
               <img
                 class="ingredients-ill"
-                src="./images/ingredients/img-3.png"
+                srcset="
+                  ./images/ingredients/img-3@1x.png 1x,
+                  ./images/ingredients/img-3@2x.png 2x
+                "
+                src="./images/ingredients/img-3@1x.png"
                 alt="NUTS"
                 width="214"
                 height="160"
@@ -248,7 +269,11 @@
               </button>
               <img
                 class="ingredients-ill"
-                src="./images/ingredients/img-4.png"
+                srcset="
+                  ./images/ingredients/img-4@1x.png 1x,
+                  ./images/ingredients/img-4@2x.png 2x
+                "
+                src="./images/ingredients/img-4@1x.png"
                 alt="SEMI - SWEET CHOCOLATE"
                 width="214"
                 height="160"
@@ -263,7 +288,11 @@
               </button>
               <img
                 class="ingredients-ill"
-                src="./images/ingredients/img-5.png"
+                srcset="
+                  ./images/ingredients/img-5@1x.png 1x,
+                  ./images/ingredients/img-5@2x.png 2x
+                "
+                src="./images/ingredients/img-5@1x.png"
                 alt="CACAO"
                 width="214"
                 height="160"
@@ -278,7 +307,11 @@
               </button>
               <img
                 class="ingredients-ill"
-                src="./images/ingredients/img-6.png"
+                srcset="
+                  ./images/ingredients/img-6@1x.png 1x,
+                  ./images/ingredients/img-6@2x.png 2x
+                "
+                src="./images/ingredients/img-6@1x.png"
                 alt="RASPBERRY"
                 width="214"
                 height="160"
@@ -293,7 +326,11 @@
               </button>
               <img
                 class="ingredients-ill"
-                src="./images/ingredients/img-7.png"
+                srcset="
+                  ./images/ingredients/img-7@1x.png 1x,
+                  ./images/ingredients/img-7@2x.png 2x
+                "
+                src="./images/ingredients/img-7@1x.png"
                 alt="COCONUT OIL"
                 width="214"
                 height="160"
@@ -306,7 +343,7 @@
       <!-- #endregion -->
 
       <!-- #region Made -->
-      <section class="made section hide" id="made">
+      <section class="made section" id="made">
         <div class="container">
           <h2 class="section-title">
             How it’s <span class="accent">made</span>?
@@ -314,11 +351,48 @@
 
           <div class="made-wrapper">
             <div class="made-left">
-              <img
-                class="made-img"
-                src="./images/made/image.jpg"
-                alt="How it’s made?"
-              />
+              <picture>
+                <!-- Desktop screen -->
+                <source
+                  media="(min-width: 1168px)"
+                  srcset="
+                    ./images/made/image_desk@1x.avif 1x,
+                    ./images/made/image_desk@2x.avif 2x
+                  "
+                  type="image/avif"
+                />
+                <source
+                  media="(min-width: 1168px)"
+                  srcset="
+                    ./images/made/image_desk@1x.jpg 1x,
+                    ./images/made/image_desk@2x.jpg 2x
+                  "
+                  type="image/jpg"
+                />
+                <!-- Tablet screen -->
+                <source
+                  media="(min-width: 768px)"
+                  srcset="
+                    ./images/made/image_tab@1x.jpg 1x,
+                    ./images/made/image_tab@2x.jpg 2x
+                  "
+                />
+                <!-- Mobile screen -->
+                <source
+                  media="(max-width: 767px)"
+                  srcset="
+                    ./images/made/image_mob@1x.jpg 1x,
+                    ./images/made/image_mob@2x.jpg 2x
+                  "
+                />
+                <img
+                  class="made-img"
+                  src="./images/made/image_tab@1x.jpg"
+                  alt="How it’s made?"
+                  width="335"
+                  height="500"
+                />
+              </picture>
               <button
                 class="made-btn clear-btn"
                 type="button"
@@ -363,7 +437,7 @@
       <!-- #endregion -->
 
       <!-- #region Products -->
-      <section class="products section hide">
+      <section class="products section">
         <div class="container">
           <h2 class="section-title">
             Our <span class="accent">products</span>
@@ -791,6 +865,79 @@
       </div>
     </div>
 
-    <article class="widget"></article>
+    <div class="mobile-menu">
+      <button class="mobile-menu-btn clear-btn" type="button">
+        <svg class="mobile-menu-icon" width="28" height="28">
+          <use href="./images/icons.svg#icon-close"></use>
+        </svg>
+      </button>
+
+      <ul class="mobile-menu-nav">
+        <li class="mobile-menu-item">
+          <a class="mobile-menu-link active" href="#">Studio</a>
+        </li>
+        <li class="mobile-menu-item">
+          <a class="mobile-menu-link" href="#">Portfolio</a>
+        </li>
+        <li class="mobile-menu-item">
+          <a class="mobile-menu-link" href="#">Contacts</a>
+        </li>
+      </ul>
+
+      <ul class="mobile-menu-contacts contacts">
+        <li class="contacts-item">
+          <a class="contacts-link" href="tel:110001111111">
+            +11 (000) 111-11-11
+          </a>
+        </li>
+        <li class="contacts-item">
+          <a class="contacts-link" href="mailto:info@devstudio.com">
+            info@devstudio.com
+          </a>
+        </li>
+      </ul>
+
+      <ul class="socials mobile-menu-socials">
+        <li class="socials-item">
+          <a
+            class="socials-link"
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Link to Facebook"
+          >
+            <svg class="socials-icon" width="24" height="24">
+              <use href="./images/icons.svg#facebook"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="socials-item">
+          <a
+            class="socials-link"
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Link to Instagram"
+          >
+            <svg class="socials-icon" width="24" height="24">
+              <use href="./images/icons.svg#instagram"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="socials-item">
+          <a
+            class="socials-link"
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Link to Twitter (X)"
+          >
+            <svg class="socials-icon" width="24" height="24">
+              <use href="./images/icons.svg#twitter"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
   </body>
 </html>
