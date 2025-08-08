@@ -38,3 +38,11 @@ const repairBots = 150;
 const defenceBots = 50;
 const msg = `${companyName} has ${repairBots + defenceBots} bots in stock`;
 // console.log(msg); // "Cyberdyne Systems has 200 bots in stock"
+
+const userName = 'Mango';
+const userNickname = 'wild_mango';
+
+banner.textContent =
+  'Hello' + ' ' + userName + ' ' + 'your nickname:' + ' ' + userNickname;
+
+banner.textContent = `Hello ${userName} your nickname: ${userNickname}`;
