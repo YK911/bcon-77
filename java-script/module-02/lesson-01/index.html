@@ -4,13 +4,67 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Branching</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      #guessNumber {
+        width: fit-content;
+        padding: 20px;
+        margin: 50px auto;
+        border: 2px solid;
+        border-radius: 10px;
+      }
+      .output {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 2px solid;
+        border-radius: 10px;
+      }
+      .box {
+        width: fit-content;
+        text-align: center;
+        margin: 0 auto 50px;
+      }
+    </style>
   </head>
   <body>
+    <!-- <form id="guessNumber">
+      <label>
+        <span>Enter number:</span>
+        <input type="text" name="userNumber" />
+      </label>
+
+      <button type="submit">Show result</button>
+    </form>
+
+    <div class="output">Result: <span id="output"></span></div> -->
+
+    <!-- <div class="box">
+      <h2>Яка компанія створила JavaScript?</h2>
+      <input type="text" id="answer" />
+    </div>
+
+    <div class="output" id="box">Result: <span id="output2"></span></div> -->
+
+    <select name="delivery" id="delivery">
+      <option value="4"></option>
+      <option value="1">самовивіз</option>
+      <option value="2">курʼєр</option>
+      <option value="3">пошта</option>
+    </select>
+
+    <div class="output">
+      <p>Option:</p>
+      <p class="output-text" id="outputText"></p>
+    </div>
+
     <!-- <script src="./js/01-branching.js" type="module"></script> -->
     <!-- <script src="./js/02-scope.js" type="module"></script> -->
     <!-- <script src="./js/03-tasks.js" type="module"></script> -->
     <!-- <script src="./js/04-switch.js" type="module"></script> -->
     <!-- <script src="./js/05-operators.js" type="module"></script> -->
-    <!-- <script src="./js/06-tasks.js" type="module"></script> -->
+    <script src="./js/06-tasks.js" type="module"></script>
   </body>
 </html>
