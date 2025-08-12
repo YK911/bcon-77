@@ -6,6 +6,12 @@
 const a = 100;
 const b = 20;
 
+// for (let i = b; i <= a; i++) {
+//     if ( i % 5 === 0 ) {
+//       console.log(i);
+//     }
+// }
+
 /**
  * Напиши скрипт, який підраховує суму всіх парних чисел,
  * які входять в діапазон чисел у змінних від min до max.
@@ -16,3 +22,35 @@ const b = 20;
 const min = 0;
 const max = 5;
 let total = 0;
+
+// for (let i = min; i < max; i++) {
+//   console.log('before', i);
+
+//   if (i % 2 !== 0) {
+//     continue
+//   }
+
+//   total += i
+//   console.log('after',total);
+// }
+function checkNumbers() {
+  console.log("Start fn");
+
+  let total = 0
+
+  for (let i = min + 1; i < max; i++) {
+    console.log(i);
+    if (i % 3 === 0) {
+      break;
+    }
+    total += 1
+  }
+
+  console.log("End fn");
+  return total;
+}
+
+const result = checkNumbers()
+console.log("🚀 ~ result:", result)
+// console.log(total);
+
