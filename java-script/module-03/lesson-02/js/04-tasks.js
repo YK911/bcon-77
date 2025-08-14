@@ -8,10 +8,24 @@
  * індексом 0 буде виведено 1 - Mango, а для індексу 2 виведе 3 - Ajax.
  */
 
-function logItems(items) {}
+function logItems(items) {
+  // items = undefined
+  let result = '';
 
-logItems(["Mango", "Poly", "Ajax"]);
-logItems(["🍎", "🍇", "🍑", "🍌", "🍋"]);
+  for (let i = 0; i < items.length; i++) {
+    const element = items[i];
+    // console.log(element);
+
+    result += `${i + 1} - ${element} `;
+  }
+
+  return result;
+}
+
+const log1 = logItems(['Mango', 'Poly', 'Ajax']);
+// console.log('🚀 ~ log1:', log1);
+const log2 = logItems(['🍎', '🍇', '🍑', '🍌', '🍋']);
+// console.log('🚀 ~ log2:', log2);
 
 /**
  * Напиши функцію printInfo(names, phones) яка виводить
@@ -22,18 +36,45 @@ logItems(["🍎", "🍇", "🍑", "🍌", "🍋"]);
  * гарантовано однакова.
  */
 
-function printInfo(names, phones) {}
+function printInfo(names, phones) {
+  // [[Scope]] = []
+  // names = undefined
+  // phones = undefined
+  // arguments = []
+  const namesArray = transfromValueToArray(names);
+  const phonesArray = transfromValueToArray(phones);
+  let info = '';
 
-printInfo(
-  "Jacob,William,Solomon,Artemis",
-  "89001234567,89001112233,890055566377,890055566300"
+  for (let i = 0; i < namesArray.length; i++) {
+    const name = namesArray[i];
+    const phone = phonesArray[i];
+
+    info += `Contact name: ${name} - ${phone}\n`;
+  }
+
+  return info;
+  // return undefined
+}
+
+function transfromValueToArray(value, separator = ',') {
+  return value.split(separator);
+}
+
+const info = printInfo(
+  'Jacob,William,Solomon,Artemis',
+  '89001234567,89001112233,890055566377,890055566300'
 );
+console.log('🚀 ~ info:\n', info);
 
 /**
  * Напиши функцію formatTime(minutes) яка переведе значення
  * minutes (кількість хвилин) у рядок у форматі годин
  * та хвилин HH:MM.
  */
+
+/**
+ * Дотатково: вказати в коментарях значення, які автоматично створюються в середині функції
+ * */
 
 const hours = Math.floor(totalMinutes / 60);
 const minutes = totalMinutes % 60;
