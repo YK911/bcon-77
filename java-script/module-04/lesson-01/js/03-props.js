@@ -7,19 +7,58 @@
 
 const username = 'Mango';
 const email = 'mango@mail.com';
+const password = 'qwery+123';
 
-const credentials = {};
+const credentials = {
+  username,
+  email,
+  password,
+};
 
-console.log(credentials);
-console.log(credentials.username);
-console.log(credentials.email);
+// console.log(credentials);
+// console.log(credentials.username);
+// console.log(credentials.email);
 
 /**
  * -------------------------
  */
 
-const inputName = 'color';
+// console.dir(color.name);
 
-const colorPickerData = {};
+const inputName = color.name;
+const inputValue = color.value;
 
-console.log(colorPickerData);
+const colorPickerData = {
+  [inputName]: inputValue,
+};
+
+// console.log(colorPickerData);
+
+function getColorPickerData(event) {
+  // element = undefined
+  // arguments = []
+
+  const element = event.target;
+
+  const name = element.name;
+  const value = element.value;
+
+  const data = {
+    [name]: value,
+  };
+
+  console.log('🚀 ~ getColorPickerData:', data);
+
+  return data;
+
+  // return undefined
+}
+
+console.dir(color);
+color.onchange = getColorPickerData;
+colorPicker.onchange = getColorPickerData;
+
+// colorPicker.onclose = getColorPickerData;
+
+// const data = getColorPickerData(color);
+// console.log('🚀 ~ data:', data);
