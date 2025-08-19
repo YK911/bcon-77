@@ -1,41 +1,112 @@
 /**
  * Масив об'єктів
  *
- * - Перебор масива
+ * - Перебирання масива
  * - Пошук об'єкта за значенням властивості
  * - Колекція значень властивості
  */
 
-const friends = [
-  { name: 'Mango', online: false },
-  { name: 'Kiwi', online: true },
-  { name: 'Poly', online: false },
-  { name: 'Ajax', online: false },
-];
+// const friends = [
+//   { name: 'Mango', online: false },
+//   { name: 'Kiwi', online: true },
+//   { name: 'Poly', online: false },
+//   { name: 'Ajax', online: false },
+// ];
 
-console.table(friends);
+// class Friend {
+//   constructor(name, online) {
+//     this.name = name;
+//     this.online = online;
+//   }
+// }
+
+// class Bestfriend extends Friend {
+//   constructor(name, online, isBestFriend) {
+//     super(name, online);
+
+//     this.isBestFriend = isBestFriend;
+//   }
+// }
+
+// const friend = new Friend('Kiwi', true);
+// console.log('🚀 ~ friend:', friend);
+
+// const bestFriend = new Bestfriend('Poly', false, true);
+// console.log('🚀 ~ bestFriend:', bestFriend);
+
+// console.log(bestFriend);
+
+// console.table(friends);
 
 /**
  * Пошук друга за іменем
  */
-function findFriendByName(allFriends, friendName) {}
+function findFriendByName(allFriends, friendName) {
+  // arguments = []
+  // allFriends = [{}, {}, {}, {}]
+  // friendName = 'Poly'
 
-// console.log(findFriendByName(friends, "Poly"));
-// console.log(findFriendByName(friends, "Chelsy"));
+  for (const friend of allFriends) {
+    // console.log(friend['name']);
+    // console.log(friend.name);
+    // console.log(friend);
+    if (friend.name === friendName) {
+      // console.log('Find', friend.name);
+      return friend;
+    }
+  }
+
+  return null;
+}
+
+// const res1 = findFriendByName(friends, 'Poly');
+// console.log('🚀 ~ res1:', res1);
+// const res2 = findFriendByName(friends, 'Chelsy');
+// console.log('🚀 ~ res2:', res2);
 
 /**
- * Отримуємо імена всіх лрузів
+ * Отримуємо імена всіх друзів
  */
-function getAllNames(allFriends) {}
+const friends = [
+  { name: 'Mango', online: false },
+  { name: 'Kiwi', online: true },
+  { name: 'Poly', online: false },
+  { name: 'Ajax', online: true },
+];
 
-// console.log(getAllNames(friends));
+function getAllNames(allFriends) {
+  const names = [];
+
+  for (const friend of allFriends) {
+    // console.log(friend.name);
+    if (friend.name !== undefined) {
+      names.push(friend.name);
+    }
+  }
+
+  return names;
+}
+
+const res3 = getAllNames(friends);
+// console.log('🚀 ~ res3:', res3);
 
 /**
  * Отримуємо імена тільки тих друзів, які зараз онлайн
  */
-function getOnlineFriends(allFriends) {}
+function getOnlineFriends(allFriends) {
+  const names = [];
 
-// console.log(getOnlineFriends(friends));
+  for (const friend of allFriends) {
+    if (friend.online) {
+      names.push(friend.name);
+    }
+  }
+
+  return names;
+}
+
+const res4 = getOnlineFriends(friends);
+// console.log('🚀 ~ res4:', res4);
 
 /**
  * Напишіть функцію calcTotalPrice(stones, stoneName),
@@ -50,3 +121,22 @@ const stones = [
   { name: 'Сапфір', price: 400, quantity: 7 },
   { name: 'Щебінь', price: 200, quantity: 2 },
 ];
+
+function calcTotalPrice(stones, stoneName) {
+  for (const stone of stones) {
+    if (stone.name === stoneName) {
+      return stone.price * stone.quantity;
+    }
+  }
+
+  return `${stoneName} is not find`;
+}
+
+const res5 = calcTotalPrice(stones, 'Діамант');
+console.log('🚀 ~ res5:', res5);
+
+const res6 = calcTotalPrice(stones, 'Щебінь');
+console.log('🚀 ~ res6:', res6);
+
+const res7 = calcTotalPrice(stones, 'Рубін');
+console.log('🚀 ~ res7:', res7);
