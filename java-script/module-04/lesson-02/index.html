@@ -66,7 +66,7 @@
           aria-label="Account info"
           data-transaction-type
         >
-          <option value=""></option>
+          <option value="">Select transaction type</option>
           <option value="deposit">Deposit</option>
           <option value="withdraw">Withdraw</option>
         </select>
@@ -78,18 +78,77 @@
 
         <h3>Transaction Details:</h3>
         <label for="transactionDetails">Transaction ID</label>
-        <input
-          class="form-control mb-3"
-          type="number"
-          id="transactionDetails"
-          data-transaction-id
-        />
-        <ul>
-          <li>Type:</li>
-          <li>Amount:</li>
-        </ul>
+        <div class="input-group mb-3">
+          <input
+            class="form-control"
+            type="number"
+            min="1"
+            id="transactionDetails"
+            placeholder="Example ID: 4"
+            data-transaction-id
+          />
+          <button
+            class="btn btn-primary"
+            type="button"
+            id="transactionDetail"
+            data-load-transaction-info
+          >
+            Show
+          </button>
+        </div>
+
+        <table class="table" data-transaction-details>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Type</th>
+              <th scope="col">Amount</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
       </div>
     </section>
+
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+      <div class="toast-container top-0 end-0 p-3">
+        <div
+          class="toast align-items-center text-bg-warning"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+          data-notification-msg
+        >
+          <div class="d-flex">
+            <div class="toast-body">Incorrect transaction ID</div>
+            <button
+              class="btn-close me-2 m-auto"
+              type="button"
+              data-bs-dismiss="toast"
+              aria-label="Close"
+            ></button>
+          </div>
+        </div>
+
+        <div
+          class="toast align-items-center text-bg-warning"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+          data-withdraw-msg
+        >
+          <div class="d-flex">
+            <div class="toast-body">Not enough money in the account</div>
+            <button
+              class="btn-close me-2 m-auto"
+              type="button"
+              data-bs-dismiss="toast"
+              aria-label="Close"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"

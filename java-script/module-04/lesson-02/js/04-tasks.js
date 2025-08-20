@@ -7,6 +7,10 @@ const refs = {
   selectTransactionTypeEl: document.querySelector('[data-transaction-type]'),
   balanceTypeEl: document.querySelector('[data-transaction-type-amount]'),
   transactionDetailsEl: document.querySelector('[data-transaction-id]'),
+  transactionLoadInfo: document.querySelector('[data-load-transaction-info]'),
+  transactionTableEl: document.querySelector('[data-transaction-details]'),
+  detailsMsgEl: document.querySelector('[data-notification-msg]'),
+  withdrawMsgEl: document.querySelector('[data-withdraw-msg]'),
 };
 
 /**
@@ -132,9 +136,17 @@ const account = {
 // console.log(account.getTransactionDetails(2));
 // console.log(account.getTransactionTotal(Transaction.WITHDRAW));
 
+const detailsMessage = new bootstrap.Toast(refs.detailsMsgEl, {
+  delay: 2000,
+});
+const withdrawMessage = new bootstrap.Toast(refs.withdrawMsgEl, {
+  delay: 2000,
+});
+
 refs.depositBtnEl.onclick = depositBtnHandler;
 refs.withdrawBtnEl.onclick = withdrawBtnHandler;
 refs.selectTransactionTypeEl.onchange = selectTransactionTypeHandler;
+refs.transactionLoadInfo.onclick = loadInfoHandler;
 
 function depositBtnHandler() {
   const depositValue = Number(refs.depositInputEl.value);
@@ -148,6 +160,7 @@ function withdrawBtnHandler() {
   const result = account.withdraw(withdrawValue);
 
   if (result === null) {
+    withdrawMessage.show();
     return;
   }
 
@@ -163,4 +176,33 @@ function selectTransactionTypeHandler(event) {
   // console.log(totalAmount);
 
   refs.balanceTypeEl.textContent = totalAmount;
+}
+
+function loadInfoHandler() {
+  const transactionID = Number(refs.transactionDetailsEl.value);
+
+  if (transactionID === '' || +transactionID === 0) {
+    console.warn('Incorrect transaction ID');
+    detailsMessage.show();
+    return;
+  }
+
+  const transactionDetails = account.getTransactionDetails(transactionID);
+
+  const tableMarkup = createDetailsMarkup(transactionDetails);
+
+  refs.transactionTableEl.tBodies[0].insertAdjacentHTML(
+    'beforeend',
+    tableMarkup
+  );
+
+  refs.transactionDetailsEl.value = '';
+}
+
+function createDetailsMarkup(data) {
+  return `<tr>
+            <th scope="row">${data.id}</th>
+            <td>${data.type}</td>
+            <td>${data.amount}</td>
+          </tr>`;
 }
