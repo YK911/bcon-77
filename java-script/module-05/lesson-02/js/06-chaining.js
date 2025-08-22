@@ -3,16 +3,24 @@
  */
 const numbers = [1, 5, 2, 4, 3];
 
-const greaterThenTwo = numbers;
+const greaterThenTwo = numbers.filter(number => number > 2);
 // console.log('🚀 ~ greaterThenTwo:', greaterThenTwo);
 
-const multByThree = greaterThenTwo;
+const multByThree = greaterThenTwo.map(item => item * 3);
+
+//   .reduce((acc, item) => {
+//   acc.push(item * 3);
+//   return acc;
+// }, []);
 // console.log('🚀 ~ multByThree:', multByThree);
 
-const sorted = multByThree;
+const sorted = multByThree.toSorted((a, b) => a - b);
 // console.log('🚀 ~ sorted:', sorted);
 
-const sortedbyChaining = numbers;
+const sortedbyChaining = numbers
+  .filter(number => number > 2)
+  .map(item => item * 3)
+  .toSorted((a, b) => a - b);
 // console.log('🚀 ~ sortedbyChaining:', sortedbyChaining);
 
 /**
@@ -100,19 +108,36 @@ const allCars = [
     onSale: false,
   },
 ];
+console.table(allCars);
 
 /**
  * Нехай функція getAvailableCarNames повертає масив моделей автомобілів,
  * але тільки тих, які зараз на розпродажі.
  */
-const getModelsOnSale = cars => {};
+const getModelsOnSale = cars => {
+  return cars
+    .filter(car => {
+      return car.onSale;
+    })
+    .map(car => {
+      return car.model;
+    });
+};
 
-// console.table(getModelsOnSale(allCars));
+console.table(getModelsOnSale(allCars));
 
 /**
  * Нехай функція getSortedCarsOnSale повертає масив автомобілів
- * на розпродажі (Властивість onSale), відсортованих за зростанням ціни.
+ * на розпродажі (властивість onSale), відсортованих за зростанням ціни.
  */
-const getSortedCarsOnSale = cars => {};
+const getSortedCarsOnSale = cars => {
+  return cars
+    .filter(car => {
+      return car.onSale;
+    })
+    .toSorted((currCar, nextCar) => {
+      return currCar.price - nextCar.price;
+    });
+};
 
-// console.table(getSortedCarsOnSale(allCars));
+console.table(getSortedCarsOnSale(allCars));

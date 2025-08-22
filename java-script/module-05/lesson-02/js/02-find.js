@@ -5,15 +5,19 @@
  * - Повертає перший елемент, що задовольняє умові або undefined
  */
 
-const numbers = [5, 10, 15, 20, 25];
+const numbers = [5, 10, 15, 20, 25, 150];
 
-const number = numbers;
-// console.log("🚀 ~ number:", number)
+const number = numbers.find(checkNumber);
+
+function checkNumber(number, idx, arr) {
+  return number === 150 && number > 30;
+}
+// console.log('🚀 ~ number:', number);
 
 /**
  * -----------------------------
  */
-const cars = [
+const allCars = [
   { make: 'Honda', model: 'CR-V', type: 'suv', price: 24045 },
   { make: 'Honda', model: 'Accord', type: 'sedan', price: 22455 },
   { make: 'Mazda', model: 'Mazda 6', type: 'sedan', price: 24195 },
@@ -25,21 +29,29 @@ const cars = [
   { make: 'Ford', model: 'Fusion', type: 'sedan', price: 22120 },
   { make: 'Ford', model: 'Explorer', type: 'suv', price: 31660 },
 ];
-
+console.table(allCars);
 /**
  * Шукаємо машину за моделлю
  */
-const getCarByModel = (cars, model) => {};
+const getCarByModel = (cars, ...args) => {
+  return cars.find((car, idx, arr) => {
+    if (args.length === 1) {
+      return car.model === args[0];
+    }
 
-// console.log(getCarByModel(allCars, "F-150"));
-// console.log(getCarByModel(allCars, "CX-9"));
-// console.log(getCarByModel(allCars, "Cayenne"));
+    return car.model === args[0] && car.make === args[1];
+  });
+};
+
+// console.log(getCarByModel(allCars, 'F-150', 'Ford'));
+// console.log(getCarByModel(allCars, 'CX-9'));
+// console.log(getCarByModel(allCars, 'Cayenne'));
 
 /**
  * Шукаємо машину за типом кузова
  */
-const getCarByType = (cars, type) => {};
+const getCarByType = (cars, type) => cars.find(car => car.type === type);
 
-// console.log(getCarByType(allCars, "sedan"));
-// console.log(getCarByType(allCars, "truck"));
-// console.log(getCarByType(allCars, "tank"));
+// console.log(getCarByType(allCars, 'sedan'));
+// console.log(getCarByType(allCars, 'truck'));
+// console.log(getCarByType(allCars, 'tank'));

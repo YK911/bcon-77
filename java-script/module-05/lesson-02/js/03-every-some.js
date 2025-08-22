@@ -1,45 +1,53 @@
+const players = [
+  { id: 'player-1', name: 'Mango', timePlayed: 310, points: 54, online: true },
+  { id: 'player-2', name: 'Poly', timePlayed: 470, points: 92, online: false },
+  { id: 'player-3', name: 'Kiwi', timePlayed: 230, points: 48, online: true },
+  { id: 'player-4', name: 'Ajax', timePlayed: 150, points: 71, online: false },
+  { id: 'player-5', name: 'Chelsy', timePlayed: 580, points: 48, online: true },
+];
+console.table(players);
+
 /**
- * Метод find
+ * Метод every
  *
  * - Поелементно перебирає оригінальний масив
- * - Повертає перший елемент, що задовольняє умові або undefined
+ * - Повертає true якщо всі елементи масиву задовольняють умову
  */
+const isAllOnline = players.every((player, idx, arr) => {
+  return player.online;
+});
+console.log('isAllOnline: ', isAllOnline);
 
-const numbers = [5, 10, 15, 20, 25];
-
-const number = numbers;
-// console.log('🚀 ~ number:', number);
+const isFirstLevelPlayers = players.every(player => {
+  if (!player.online) {
+    return player.points > 40;
+  }
+  return player.online && player.timePlayed > 100;
+});
+// console.log('🚀 ~ isFirstLevelPlayers:', isFirstLevelPlayers);
 
 /**
- * -----------------------------
+ * Метод some
+ *
+ * - Поелементно перебирає оригінальний масив
+ * - Повертає true якщо хоча б один елемент масиву задовольняє умову
  */
-const cars = [
-  { make: 'Honda', model: 'CR-V', type: 'suv', price: 24045 },
-  { make: 'Honda', model: 'Accord', type: 'sedan', price: 22455 },
-  { make: 'Mazda', model: 'Mazda 6', type: 'sedan', price: 24195 },
-  { make: 'Mazda', model: 'CX-9', type: 'suv', price: 31520 },
-  { make: 'Toyota', model: '4Runner', type: 'suv', price: 34210 },
-  { make: 'Toyota', model: 'Sequoia', type: 'suv', price: 45560 },
-  { make: 'Toyota', model: 'Tacoma', type: 'truck', price: 24320 },
-  { make: 'Ford', model: 'F-150', type: 'truck', price: 27110 },
-  { make: 'Ford', model: 'Fusion', type: 'sedan', price: 22120 },
-  { make: 'Ford', model: 'Explorer', type: 'suv', price: 31660 },
-];
+const isAnyOnline = players.some((player, idx) => {
+  // console.log(idx + 1);
 
-/**
- * Шукаємо машину за моделлю
- */
-const getCarByModel = (cars, model) => {};
+  return player.online;
+});
+// console.log('isAnyOnline: ', isAnyOnline);
 
-// console.log(getCarByModel(allCars, "F-150"));
-// console.log(getCarByModel(allCars, "CX-9"));
-// console.log(getCarByModel(allCars, "Cayenne"));
+const anyHardcorePlayers = players.some(player => {
+  return player.timePlayed > 450;
+});
+// console.log('anyHardcorePlayers: ', anyHardcorePlayers);
 
-/**
- * Шукаємо машину за типом кузова
- */
-const getCarByType = (cars, type) => {};
+if (anyHardcorePlayers) {
+  const hardcorePlayers = players.filter(player => {
+    return player.timePlayed > 450;
+  });
 
-// console.log(getCarByType(allCars, "sedan"));
-// console.log(getCarByType(allCars, "truck"));
-// console.log(getCarByType(allCars, "tank"));
+  // console.log(hardcorePlayers);
+}
