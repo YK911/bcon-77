@@ -1,3 +1,4 @@
+// 'use strict';
 /**
  * Контекст виконання функції
  *
@@ -9,11 +10,19 @@
 /**
  * Глобальний контекст
  */
-function foo() {
+function foo(a, b) {
+  // a = undefined
+  // b = undefined
+  // arguments = []
+  // this = undefined
+
   console.log('foo -> this', this);
+
+  // return undefined
 }
 
-foo();
+// foo()
+// console.dir(foo);
 
 /**
  * Контекст методу об'єкта
@@ -21,12 +30,14 @@ foo();
 
 const user = {
   tag: 'Mango',
+
   showTag() {
     console.log('showTag -> this', this);
+    console.log('User name', this.tag);
   },
 };
 
-user.showTag();
+// user.showTag();
 
 /**
  * Контекст методу об'єкта, але оголошена як зовнішня функція.
@@ -34,19 +45,26 @@ user.showTag();
 
 function showTag() {
   console.log('showTag -> this', this);
-  console.log('showTag -> this.tag', this.tag);
+  console.log('showTag -> this.tag', this?.tag);
 }
 
-showTag();
+// showTag();
 
 const mango = {
   tag: 'Mango',
+
+  // showUserTag: function showTag() {
+  //   console.log('showTag -> this', this);
+  //   console.log('showTag -> this.tag', this?.tag);
+  // },
 };
 
 mango.showUserTag = showTag;
-console.log('mango', mango);
+// console.log('mango', mango);
 
-mango.showUserTag();
+// mango.showUserTag();
+
+// mango.showTag(); // undefined -> undefined()
 
 /**
  * Виклик без контексту, але оголошена як метод об'єкта.
@@ -54,33 +72,35 @@ mango.showUserTag();
 
 const poly = {
   tag: 'Poly',
+
   showTag() {
     console.log('showTag -> this', this);
     console.log('showTag -> this.tag', this.tag);
   },
 };
 
-poly.showTag();
+// poly.showTag();
 
 const outerShowTag = poly.showTag;
 
-outerShowTag();
+// outerShowTag();
 
 /**
  * Контекст у callback-функціях
  */
-
 const jacob = {
   tag: 'Jacob',
+
   showTag() {
     console.log('showTag -> this', this);
     console.log('showTag -> this.tag', this.tag);
   },
 };
 
-function invokeAction(action) {
-  console.log(action);
-  action();
+function invokeAction(callback) {
+  // this = undefined
+  console.log(callback);
+  callback();
 }
 
 invokeAction(jacob.showTag);
