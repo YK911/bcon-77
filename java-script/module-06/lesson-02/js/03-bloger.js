@@ -11,18 +11,41 @@
  * - Додай метод updatePostCount(value), який у параметрі value приймає кількість постів, які потрібно додати користувачеві.
  */
 
-const mango = new User({
-  name: 'mango@mail.com',
+class Blogger {
+  constructor(params) {
+    this.email = params.email;
+    this.age = params.age;
+    this.numberOfPosts = params.numberOfPosts;
+    this.topics = params.topics;
+    this.platform = 'TikTok';
+  }
+
+  getInfo() {
+    return `User ${this.email} is ${this.age} years old and has ${this.numberOfPosts} posts`;
+  }
+  updatePostCount(value) {
+    this.numberOfPosts += value;
+  }
+
+  showPlatform() {
+    console.log(`Blogger ${this.email} works on ${this.platform}`);
+  }
+}
+
+const mango = new Blogger({
+  email: 'mango@mail.com',
   age: 24,
   numberOfPosts: 20,
   topics: ['tech', 'cooking'],
 });
+
 console.log(mango.getInfo()); // User mango@mail.com is 24 years old and has 20 posts
 mango.updatePostCount(5);
 console.log(mango.getInfo()); // User mango@mail.com is 24 years old and has 25 posts
+mango.showPlatform();
 
-const poly = new User({
-  name: 'poly@mail.com',
+const poly = new Blogger({
+  email: 'poly@mail.com',
   age: 19,
   numberOfPosts: 17,
   topics: ['sports', 'gaming', 'health'],
@@ -30,3 +53,4 @@ const poly = new User({
 console.log(poly.getInfo()); // User poly@mail.com is 19 years old and has 17 posts
 poly.updatePostCount(4);
 console.log(poly.getInfo()); // User poly@mail.com is 19 years old and has 21 posts
+poly.showPlatform();
