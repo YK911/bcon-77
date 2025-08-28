@@ -4,11 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Properties</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    />
   </head>
   <body>
     <p><a href="./index.html">Go back</a></p>
 
-    <section class="hero">
+    <section
+      class="hero"
+      style="background-color: lightblue"
+      id="main-section"
+      aria-readonly="true"
+      contenteditable
+    >
       <h1 class="hero__title">About me</h1>
       <img
         class="hero__image"
@@ -20,13 +30,29 @@
 
     <hr />
 
-    <input type="text" class="js-input" />
+    <div class="mb-3">
+      <input
+        class="d-inline-block w-auto form-control js-input"
+        type="text"
+        value="John Doe"
+      />
+      <button
+        class="d-inline-block btn btn-light js-type-switcher"
+        id="toogle"
+        type="button"
+      >
+        hide pass
+      </button>
+    </div>
 
     <div class="actions">
-      <button type="button" data-action="add">Create</button>
-      <button type="button" data-action="remove">Delete</button>
-      <button type="button" data-action="edit">Edit</button>
+      <button data-sale="true" data-action="add" data-value="10">Create</button>
+      <button data-sale="false" data-action="remove" data-value="20">
+        Delete
+      </button>
+      <button data-sale="true" data-action="edit" data-value="30">Edit</button>
     </div>
+    <p class="h4 mt-3">Action type: <span class="small js-output">-</span></p>
 
     <script src="./js/02-properties.js"></script>
   </body>

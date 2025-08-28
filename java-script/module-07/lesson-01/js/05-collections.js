@@ -15,3 +15,21 @@ const colorPickerContainerEl = document.querySelector('.js-color-picker');
 /**
  * Пишемо функцію для створення розмітки колорпікера
  */
+function createColorpickerEl(elements) {
+  const boxes = elements.map(element => {
+    const btn = document.createElement('button');
+    btn.textContent = element.label;
+    btn.classList.add('btn', 'mx-1');
+    btn.style.backgroundColor = element.color;
+    btn.style.color = 'white';
+
+    return btn;
+  });
+
+  return boxes;
+}
+
+const btns = createColorpickerEl(options);
+// console.log(btns);
+
+colorPickerContainerEl.append(...btns);
