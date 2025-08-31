@@ -1,0 +1,50 @@
+/* #region Bubbling */
+#parent,
+#child,
+#inner-child {
+  margin: 16px;
+  padding: 16px;
+  border: 1px solid #ffc107;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+#parent {
+  background-color: #673ab7;
+}
+
+#child {
+  background-color: #448aff;
+}
+
+#inner-child {
+  background-color: #009688;
+}
+
+/* #endregion */
+
+/* #region Delegation */
+.container {
+  display: flex;
+  justify-content: space-around;
+
+  .box {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+  }
+  .red {
+    background-color: tomato;
+  }
+
+  .green {
+    background-color: lightgreen;
+  }
+
+  .blue {
+    background-color: lightblue;
+  }
+}
+/* #endregion */
