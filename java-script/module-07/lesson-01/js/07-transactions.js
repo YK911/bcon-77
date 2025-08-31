@@ -4,8 +4,8 @@ const transactionHistory = [
     amount: '179.07',
     date: '2012-02-01T22:00:00.000Z',
     business: 'Bogan - DuBuque',
-    name: 'Auto Loan Account 7313',
     type: 'deposit',
+    name: 'Auto Loan Account 7313',
     account: '19808943',
   },
   {
@@ -13,8 +13,8 @@ const transactionHistory = [
     amount: '930.87',
     date: '2012-02-01T22:00:00.000Z',
     business: 'Legros, Weimann and Treutel',
-    name: 'Auto Loan Account 0721',
     type: 'invoice',
+    name: 'Auto Loan Account 0721',
     account: '38277848',
   },
   {
@@ -22,8 +22,8 @@ const transactionHistory = [
     amount: '704.53',
     date: '2012-02-01T22:00:00.000Z',
     business: 'Beatty, Wisozk and Koch',
-    name: 'Savings Account 1894',
     type: 'withdrawal',
+    name: 'Savings Account 1894',
     account: '76727204',
   },
   {
@@ -31,8 +31,8 @@ const transactionHistory = [
     amount: '656.81',
     date: '2012-02-01T22:00:00.000Z',
     business: 'Hane - Bode',
-    name: 'Personal Loan Account 2316',
     type: 'withdrawal',
+    name: 'Personal Loan Account 2316',
     account: '27462350',
   },
   {
@@ -40,8 +40,8 @@ const transactionHistory = [
     amount: '280.21',
     date: '2012-02-01T22:00:00.000Z',
     business: 'Schulist - Waelchi',
-    name: 'Savings Account 9032',
     type: 'payment',
+    name: 'Savings Account 9032',
     account: '99923313',
   },
   {
@@ -49,8 +49,8 @@ const transactionHistory = [
     amount: '303.06',
     date: '2012-02-01T22:00:00.000Z',
     business: 'Swaniawski - Hayes',
-    name: 'Checking Account 0573',
     type: 'invoice',
+    name: 'Checking Account 0573',
     account: '75028346',
   },
   {
@@ -58,8 +58,8 @@ const transactionHistory = [
     amount: '462.59',
     date: '2012-02-01T22:00:00.000Z',
     business: 'Berge - Reinger',
-    name: 'Personal Loan Account 8173',
     type: 'invoice',
+    name: 'Personal Loan Account 8173',
     account: '93437240',
   },
   {
@@ -67,8 +67,8 @@ const transactionHistory = [
     amount: '242.49',
     date: '2012-02-01T22:00:00.000Z',
     business: 'Stroman Inc',
-    name: 'Savings Account 1383',
     type: 'withdrawal',
+    name: 'Savings Account 1383',
     account: '18476423',
   },
   {
@@ -76,8 +76,8 @@ const transactionHistory = [
     amount: '770.94',
     date: '2012-02-01T22:00:00.000Z',
     business: 'Johns - Pagac',
-    name: 'Auto Loan Account 1392',
     type: 'invoice',
+    name: 'Auto Loan Account 1392',
     account: '07680863',
   },
   {
@@ -85,10 +85,60 @@ const transactionHistory = [
     amount: '788.40',
     date: '2012-02-01T22:00:00.000Z',
     business: 'Ullrich, Shields and Koelpin',
-    name: 'Personal Loan Account 8318',
     type: 'invoice',
+    name: 'Personal Loan Account 8318',
     account: '07081761',
   },
 ];
 
 const tableEl = document.querySelector('.js-transaction-table');
+
+// Create html table markup
+
+// const tableBodyMarkup = transactionHistory.map((transaction, idx) => {
+//   const trEl = document.createElement('tr');
+//   const tableData = Object.values(transaction);
+//   // console.log('🚀 ~ tableData:', tableData);
+
+//   const tdMarkup = tableData.map(data => {
+//     const tdEl = document.createElement('td');
+//     tdEl.textContent = data;
+//     return tdEl;
+//   });
+//   tdMarkup[0].textContent = idx + 1;
+//   tdMarkup[0].setAttribute('id', tableData[0]);
+//   trEl.append(...tdMarkup);
+
+//   return trEl;
+// });
+
+// console.log('🚀 ~ tableBodyMarkup:', tableBodyMarkup);
+// tableEl.append(...tableBodyMarkup);
+
+function makeRowMarkup(transaction = {}, idx) {
+  return `
+    <tr id="${transaction.id}">
+      <td>${idx}</td>
+      <td>${transaction.amount}</td>
+      <td>${transaction.date}</td>
+      <td>${transaction.business}</td>
+      <td>${transaction.type}</td>
+      <td>${transaction.name}</td>
+      <td>${transaction.account}</td>
+    </tr>
+  `;
+}
+
+const transactionsRowMarkup = transactionHistory
+  .map((item, idx) => {
+    return makeRowMarkup(item, idx + 1);
+  })
+  .join('');
+
+// console.log('🚀 ~ transactionsRowMarkup:', transactionsRowMarkup);
+tableEl.insertAdjacentHTML(
+  'beforeend',
+  transactionsRowMarkup
+  // transactionsRowMarkup + `<script>${window.alert('Block page')}</script>`
+);
+// tableEl.innerHTML += transactionsRowMarkup; // для одиничної операції вставки даних на сторінку
