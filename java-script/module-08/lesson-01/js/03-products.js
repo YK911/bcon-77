@@ -47,3 +47,40 @@ const products = [
 ];
 
 const container = document.querySelector('.products');
+const cardsMarkup = products.map(product => createCardMarkup(product)).join('');
+
+container.innerHTML = cardsMarkup;
+
+container.addEventListener('click', handleCardClick);
+
+function createCardMarkup(card, isModal = false) {
+  return `<li class="${isModal ? 'mw-100' : 'col-6'}">
+        <div class="card" id="${card.id}">
+          <img class="card-img-top object-fit-contain p-3" src="${
+            card.img
+          }" alt="${card.name}" height="300" />
+          <div class="card-body">
+            <h5 class="card-title">${card.name}</h5>
+            ${isModal ? `<p class="card-text">${card.description}</p>` : ''}
+            <p class="display-6">Price: ${card.price}</p>
+          </div>
+        </div>
+      </li>`;
+}
+
+function handleCardClick(event) {
+  const targetEl = event.target;
+  const cardEl = targetEl.closest('.card');
+
+  // Не попали курсором в карточку, припиняємо подальшу обробку
+  if (!cardEl) {
+    console.log('Element is not a card');
+    return;
+  }
+
+  const currentCardId = Number(cardEl.id);
+  const currentProduct = products.find(product => product.id === currentCardId);
+  const cardMarkup = createCardMarkup(currentProduct, true);
+
+  basicLightbox.create(cardMarkup).show();
+}
