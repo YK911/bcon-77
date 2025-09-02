@@ -12,12 +12,23 @@ const user = {
 };
 
 // Без деструктуризації
-function getUserName(obj) {
-  console.log(
-    `Hello my name is ${obj.name}, I know html - ${obj.skills.html}, css - ${obj.skills.css} and js -${obj.skills.js}`
-  );
-}
+// function getUserName(obj) {
+//   console.log(
+//     `Hello my name is ${obj.name}, I know html - ${obj.skills.html}, css - ${obj.skills.css} and js -${obj.skills.js}`
+//   );
+// }
 
 // З деструктуризацією
+function getUserName({ username, skills: { html, css, js } }) {
+  // function getUserName(obj) {
+  // const {
+  //   username,
+  //   skills: { html, css, js },
+  // } = obj;
+
+  console.log(
+    `Hello my name is ${username}, I know html - ${html}, css - ${css} and js -${js}`
+  );
+}
 
 getUserName(user);
