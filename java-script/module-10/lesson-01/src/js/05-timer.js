@@ -6,11 +6,43 @@ import '../common.css';
  */
 
 class Timer {
-  constructor() {}
+  constructor({ onTick }) {
+    this.intervalId = null;
+    this.isActive = false;
+    this.onTick = onTick;
 
-  start() {}
+    this.init();
+  }
 
-  stop() {}
+  init() {
+    const time = this.getTimeComponents(0);
+    console.log('🚀~ time:', time);
+    this.onTick(time);
+  }
+
+  start() {
+    if (this.isActive) {
+      return;
+    }
+
+    const startTime = Date.now();
+    this.isActive = true;
+    this.intervalId = setInterval(() => {
+      const currentDate = Date.now();
+      const deltaTime = currentDate - startTime;
+      // console.log(deltaTime);
+      const time = this.getTimeComponents(deltaTime);
+      console.log('🚀 ~ time:', time);
+      this.onTick(time);
+    }, 1000);
+  }
+
+  stop() {
+    clearInterval(this.intervalId);
+    this.isActive = false;
+    const time = this.getTimeComponents(0);
+    this.onTick(time);
+  }
 
   /**
    * - Приймає час в мілісекундах
@@ -40,17 +72,33 @@ const stopBtn = document.querySelector('button[data-action-stop]');
 const clockface = document.querySelector('.js-clockface');
 
 const timer = new Timer({
-  onTick: updateClockface,
+  onTick: updateClockface(clockface),
 });
 
-// startBtn.addEventListener("click", timer.start.bind(timer));
-// stopBtn.addEventListener("click", timer.stop.bind(timer));
+startBtn.addEventListener('click', timer.start.bind(timer));
+stopBtn.addEventListener('click', timer.stop.bind(timer));
+
+const timer1 = new Timer({
+  onTick: updateClockface(document.querySelector('.js-clockface-1')),
+});
+
+document
+  .querySelector('button[data-action-start="1"]')
+  .addEventListener('click', timer1.start.bind(timer1));
+document
+  .querySelector('button[data-action-stop="1"]')
+  .addEventListener('click', timer1.stop.bind(timer1));
 
 /**
  * - Приймає час в мілісекундах
  * - Вираховує скільки в них вміщається годин/хвилин/секунд
  * - Рендерить інтерфейс
  */
-function updateClockface({ hours, mins, secs }) {
-  clockface.textContent = `${hours}:${mins}:${secs}`;
+// HOF - Higher Order Function
+function updateClockface(selector) {
+  // console.log(selector);
+
+  return function ({ hours, mins, secs }) {
+    selector.textContent = `${hours}:${mins}:${secs}`;
+  };
 }
