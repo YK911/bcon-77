@@ -1,5 +1,5 @@
 {
-  "name": "lesson-02",
+  "name": "lesson-01",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "eslint": "^9.35.0",
     "vite": "^6.0.5"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8"
   }
 }
