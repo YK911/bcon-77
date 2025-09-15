@@ -7,11 +7,23 @@ import "../common.css";
  * - Які помилки ловить
  *  - ❌ помилки парсингу (parsing errors)
  *  - ✅ помилки виконання (runtime errors)
- * - Ловить лише помилки в синхронному коді
- * - Як зловити помилку в асинхронному коді
  * - Об'єкт помилки
  *  - name
  *  - message
  *  - stack
  * - Блок catch без об'єкта помилки
  */
+
+try {
+  const name = "Mango";
+  // console.log(name);
+  console.log(nome);
+
+  let counter = 1;
+  console.log("🚀 ~ counter:", counter);
+} catch (error) {
+  console.dir(error);
+  console.log(error.name);
+  console.log(error.message);
+  console.log(error.stack);
+}
