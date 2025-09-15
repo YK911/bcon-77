@@ -6,31 +6,34 @@ import "../common.css";
  *
  * Переписуємо на async/await
  */
+axios.defaults.baseURL = "https://pokeapi.co/api/v2";
 
-function fetchPokemon(pokemonId) {
-  return axios
-    .get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
-    .then((response) => response.data);
-}
+const fetchPokemon = async (pokemonId) => {
+  const response = await axios.get(`/pokemon/${pokemonId}`);
+  return response.data;
+};
 
-const cardContainer = document.querySelector(".card-container");
-const searchForm = document.querySelector(".search-form");
-
-searchForm.addEventListener("submit", onSearch);
-
-function onSearch(e) {
+const onSearch = async (e) => {
   e.preventDefault();
 
   const form = e.currentTarget;
   const searchQuery = form.elements.query.value.toLowerCase();
 
-  fetchPokemon(searchQuery)
-    .then(renderPokemonCard)
-    .catch(onFetchError)
-    .finally(() => form.reset());
-}
+  loader.classList.add("is-open");
 
-function renderPokemonCard({ name, sprites, weight, height, abilities }) {
+  try {
+    const pokemonInfo = await fetchPokemon(searchQuery);
+    renderPokemonCard(pokemonInfo);
+  } catch (error) {
+    console.log(error);
+    onFetchError(error);
+  }
+
+  form.reset();
+  loader.classList.remove("is-open");
+};
+
+const renderPokemonCard = ({ name, sprites, weight, height, abilities }) => {
   const abilityListItems = abilities
     .map((item) => `<li class="list-group-item">${item.ability.name}</li>`)
     .join("");
@@ -48,8 +51,14 @@ function renderPokemonCard({ name, sprites, weight, height, abilities }) {
 </div>`;
 
   cardContainer.innerHTML = markup;
-}
+};
 
-function onFetchError(error) {
+const onFetchError = (error) => {
   alert("Упс, щось пішло не так і ми не знайшли вашого покемона!");
-}
+};
+
+const cardContainer = document.querySelector(".card-container");
+const searchForm = document.querySelector(".search-form");
+const loader = document.querySelector(".loader-wrapper");
+
+searchForm.addEventListener("submit", onSearch);

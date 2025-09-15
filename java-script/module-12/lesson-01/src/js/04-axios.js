@@ -6,7 +6,7 @@ const BASE_URL = "https://newsapi.org/v2";
 axios.defaults.baseURL = BASE_URL;
 axios.defaults.headers.common["x-api-key"] = import.meta.env.VITE_SECRET_KEY;
 
-console.log(import.meta.env.VITE_SECRET_KEY);
+// console.log(import.meta.env.VITE_SECRET_KEY);
 
 const fetchNews = async () => {
   const response = await axios.get("/everything", {
