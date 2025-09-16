@@ -1,0 +1,28 @@
+{
+  "name": "modules-project",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --open",
+    "build": "vite build --base=/modules-project/",
+    "preview": "vite preview"
+  },
+  "author": "Alexander Repeta <alexander.repeta@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "glob": "^11.0.0",
+    "postcss": "^8.4.41",
+    "postcss-sort-media-queries": "^5.2.0",
+    "sass": "^1.92.0",
+    "vite": "^5.4.6",
+    "vite-plugin-full-reload": "^1.2.0",
+    "vite-plugin-html-inject": "^1.1.2"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "body-scroll-lock": "^4.0.0-beta.0",
+    "bootstrap": "^5.3.8",
+    "simplelightbox": "^2.14.3"
+  }
+}

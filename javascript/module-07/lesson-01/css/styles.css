@@ -1,0 +1,19 @@
+.active {
+  display: inline-block;
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid rebeccapurple;
+  color: rebeccapurple;
+}
+
+.disabled {
+  pointer-events: none;
+  background-color: lightgray;
+}
+
+.container.instagram .wrapper:first-child {
+  color: rebeccapurple;
+}
+.container.facebook .wrapper:last-child {
+  color: lightgreen;
+}

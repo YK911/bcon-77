@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Practice: feedback form</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/feedback.css" />
+  </head>
+  <body>
+    <p><a href="index.html">Go back</a></p>
+    <h1 class="text-center">Feedback form</h1>
+
+    <form class="js-feedback-form w-50 mx-auto d-flex flex-column gap-2">
+      <label class="form-label">
+        <b class="d-block mb-2">Name</b>
+        <input
+          class="form-control"
+          type="text"
+          name="name"
+          placeholder="Enter your name"
+          value="Anonymous"
+        />
+      </label>
+      <label class="form-label">
+        <b class="d-block mb-2">Message</b>
+        <textarea class="form-control" name="message" rows="6"></textarea>
+      </label>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+
+    <script src="js/02-feedback.js"></script>
+  </body>
+</html>

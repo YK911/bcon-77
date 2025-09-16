@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Templating</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <p><a href="./index.html">Go back</a></p>
+
+    <h1 class="title">This is <span>a heading</span></h1>
+
+    <div class="container">
+      <div class="mb-3">
+        <label for="todo" class="form-label">ToDo</label>
+        <div class="input-group">
+          <input
+            class="form-control js-todo-input"
+            type="text"
+            placeholder="Type todo..."
+            id="todo"
+          />
+          <button class="btn btn-primary js-todo-btn" type="button">
+            Add todo
+          </button>
+        </div>
+      </div>
+
+      <ul class="js-list">
+        <!-- <li><a href="">Home</a></li> -->
+      </ul>
+    </div>
+
+    <script src="./js/06-templating.js"></script>
+  </body>
+</html>
