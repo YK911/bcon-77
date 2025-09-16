@@ -23,6 +23,7 @@ img {
 
 /* Контейнер */
 .container {
+  position: relative;
   max-width: 600px;
   margin: 0 auto;
   background: white;
@@ -68,11 +69,13 @@ img {
   margin: 15px 0;
   font-size: 14px;
   color: #666;
-}
+  transition: 300ms ease-out;
 
-/* Ховаємо елементи */
-.hidden {
-  display: none;
+  /* Ховаємо елементи */
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 /* Статті */
@@ -96,6 +99,12 @@ img {
   display: block;
 }
 
+.articles img {
+  object-fit: cover;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
 .articles h2 {
   font-size: 18px;
   margin: 10px 0;
@@ -112,4 +121,8 @@ img {
   margin: 20px auto 0; /* Додає відступи зверху */
   width: 100%;
   max-width: 200px;
+
+  &.hidden {
+    display: none;
+  }
 }
