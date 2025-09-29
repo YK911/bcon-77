@@ -16,7 +16,7 @@
 ## Прості типи
 
 - any, string, number, boolean, null, undefined
-- Виведення типів
+- Виведення типів (type inference)
 
 ## Типізація об'єктів
 
