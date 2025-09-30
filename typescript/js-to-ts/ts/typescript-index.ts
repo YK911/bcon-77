@@ -1,12 +1,17 @@
-import { createBook, listBooks, deleteBook } from "./utils.js";
+import { Books } from "./typescript-types.js";
+import { createBook, listBooks, deleteBook } from "./typescript-utils.js";
 
-const books = [];
-const addButton = document.getElementById("addBook");
-const deleteButton = document.getElementById("deleteBook");
-const listElement = document.getElementById("bookList");
-const titleInput = document.getElementById("title");
-const authorInput = document.getElementById("author");
-const deleteTitleInput = document.getElementById("deleteTitle");
+const books: Books = [];
+
+// ? Type Casting
+const addButton = document.getElementById("addBook") as HTMLButtonElement;
+const deleteButton = document.getElementById("deleteBook") as HTMLButtonElement;
+const listElement = document.getElementById("bookList") as HTMLOListElement;
+const titleInput = document.getElementById("title") as HTMLInputElement;
+const authorInput = document.getElementById("author") as HTMLInputElement;
+const deleteTitleInput = document.getElementById(
+  "deleteTitle"
+) as HTMLInputElement;
 
 if (addButton && titleInput && authorInput) {
   addButton.addEventListener("click", () => {
