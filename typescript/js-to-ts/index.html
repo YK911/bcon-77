@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript to TypeScript</title>
+  </head>
+  <body>
+    <h1>Books List</h1>
+
+    <div>
+      <h3>Add a Book</h3>
+      <input type="text" id="title" placeholder="Enter book title" />
+      <input type="text" id="author" placeholder="Enter author name" />
+      <button id="addBook">Add Book</button>
+    </div>
+
+    <div>
+      <h3>Delete a Book</h3>
+      <input
+        type="text"
+        id="deleteTitle"
+        placeholder="Enter book title to delete"
+      />
+      <button id="deleteBook">Delete Book</button>
+    </div>
+
+    <div>
+      <h3 class="book-list">Book List</h3>
+      <ol id="bookList">
+        <!-- Book list will be displayed here -->
+      </ol>
+    </div>
+    <script src="./js/index.js" type="module"></script>
+  </body>
+</html>
